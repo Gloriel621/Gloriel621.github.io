@@ -10,6 +10,9 @@ Hi. I'm a senior student in the department of Computer Science and Engineering a
 - **Frameworks and Tools**: Git, Docker, PostgreSQL, NumPy, Pandas, PyTorch, TensorFlow
 - **Specialties**: Deep Learning, Reinforcement Learning, Object Detection Algorithms (YOLOv5), Image Upscaling Algorithms
 
+- **English**: C1 in CEFR, received a total score of 94 on the iBT TOEFL.
+- **Norwegian**: B1 in CEFR, received corresponding grades from University of Oslo
+
 ## (3) Education
 
 **Sungkyunkwan University, Suwon, Republic of Korea**
