@@ -29,7 +29,7 @@ jobs:
 
       - name: Validate HTML
         run: |
-          html5validator --root . --also-check-css
+          html5validator --root . --skip-non-html
 
       - name: Validate CSS
         run: |
