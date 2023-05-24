@@ -3,10 +3,10 @@
   "username": "Gloriel621",
   "name": "Hakjun Moon",
   "userimg": "https://avatars.githubusercontent.com/u/65398406?v=4",
-  "sort": "created",
+  "sort": "updated",
   "order": "asc",
-  "includeFork": false,
-  "theme": "light.css",
+  "includeFork": true,
+  "theme": "dark.css",
   "types": [
    "owner"
   ],
