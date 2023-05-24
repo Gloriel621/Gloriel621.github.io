@@ -1,36 +1,55 @@
-name: HTML/CSS Validation
+# Name of the workflow
+name: HTML CSS Validation
 
+# Trigger the workflow on push event on the "main" branch
 on:
   push:
     branches: ["main"]
 
+# Define jobs
 jobs:
+  # Define the validation job
   validation:
+    # Run this job on the latest version of Ubuntu
     runs-on: ubuntu-latest 
 
+    # Steps for this job
     steps:
+      # Use GitHub action to checkout the code
       - uses: actions/checkout@v3
 
+      # Use GitHub action to setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
+          # Specify the version of Node.js to setup
           node-version: '14'
 
+      # Use GitHub action to setup Python
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
+          # Specify the version of Python to setup
           python-version: '3.8'
 
+      # Install necessary dependencies
       - name: Install dependencies
         run: |
+          # Upgrade pip to the latest version
           python -m pip install --upgrade pip
+          # Install html5validator for HTML validation
           pip install html5validator
+          # Install stylelint and stylelint-config-standard for CSS validation
           npm install -g stylelint stylelint-config-standard
 
+      # Validate HTML files
       - name: Validate HTML
         run: |
+          # Run html5validator on all HTML files in the root directory
           html5validator --root . --skip-non-html
 
+      # Validate CSS files
       - name: Validate CSS
         run: |
+          # Find all CSS files and run stylelint on them
           find . -name "*.css" -exec stylelint {} \;
