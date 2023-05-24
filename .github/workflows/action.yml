@@ -11,13 +11,26 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y w3c-markup-validator w3c-css-validator
+          python -m pip install --upgrade pip
+          pip install html5validator
+          npm install -g stylelint stylelint-config-standard
 
       - name: Validate HTML
-        run: find . -type f -name "*.html" -exec vnu {} \;
-      
+        run: |
+          html5validator --root . --also-check-css
+
       - name: Validate CSS
-        run: find . -type f -name "*.css" -exec css-validator {} \;
+        run: |
+          find . -name "*.css" -exec stylelint {} \;
